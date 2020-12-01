@@ -51,7 +51,9 @@ def enterTwoIntegers():
     first_row = [1, 0, a, 0]
     second_row = [0, 1, b, 0]
 
+    # Save the solution in list new_rew which corresponds to row_i+2
     new_row = solve(first_row, second_row)
+    
     x = new_row[0]
     y = new_row[1]
     gcd = new_row[2]
@@ -65,8 +67,8 @@ def enterTwoIntegers():
         b = -1 * b
         y = -1 * y
 
-    gcd_ab = f'gcd({b}, {a}) = {new_row[2]}' if flag_sawpped else f'gcd({a}, {b}) = {new_row[2]}'
-    linear_combination = f'We found the integers x = {x} and y = {y} such that'
+    gcd_ab = f'gcd({b}, {a}) = {new_row[2]}' if flag_sawpped else f'gcd({a}, {b}) = {new_row[2]}'     # gcd(a,b) = value
+    linear_combination = f'We found the integers x = {x} and y = {y} such that:'                      # We found the integers x = value1 and y = value 2 such that:
 
     # If b < 0 make the combination look like this ax - by
     sign = '+'
@@ -74,8 +76,9 @@ def enterTwoIntegers():
         b = abs(b)
         sign = '-'
 
-    linear_combination2 = f'{a}({x}) {sign} {b}({y}) = {gcd}'
+    linear_combination2 = f'{a}({x}) {sign} {b}({y}) = {gcd}'                                         # We a(x) + or - b(y) = gcd(a,b)
 
+    # print on the consloes the 3 strings we have formed gcd_ab, linear_combination and linear_combination2. Each string on a seprate line.
     print(gcd_ab)
     print(linear_combination)
     print(linear_combination2)
@@ -107,5 +110,5 @@ def solve(first_row, second_row):
     return second_row
 
 
-# start the program by calling enterTwoIntegers() function
+# Start the program by calling enterTwoIntegers() function
 enterTwoIntegers()
